@@ -1,13 +1,10 @@
-import Control.Applicative ((<*))
 import Data.Char
 import Data.List
 import Text.Parsec
-import Text.Parsec.Char
-import Text.Parsec.String
+
+import AoC21Lib
 
 bits = many1 (subtract (ord '0') . ord <$> oneOf "01")
-
-linesOf = flip sepEndBy endOfLine
 
 binToDec = foldl (\a b -> 2 * a + b) 0
 
@@ -16,9 +13,6 @@ occurences = map (\x -> (head x, length x)) . sortOn length . group . sort
 mostCommon = fst . head . reverse . occurences
 
 leastCommon = fst . head . occurences
-
-withParser :: Show b => (a -> b) -> Parser a -> String -> String
-withParser soln parser = either show (show . soln) . parse (parser <* eof) "stdin"
 
 part1 = (\bs -> gamma bs * epsilon bs) `withParser` linesOf bits
   where gamma   = binToDec . map mostCommon . transpose
