@@ -26,8 +26,4 @@ part2 = (\bs -> ox bs * co2 bs) `withParser` linesOf bits
   where ox  = binToDec . rating mostCommon
         co2 = binToDec . rating leastCommon
 
-#ifndef PART2
-main = interact part1 >> putStrLn ""
-#else
-main = interact part2 >> putStrLn ""
-#endif
+#include "main.hs"

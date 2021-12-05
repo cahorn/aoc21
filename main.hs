@@ -1,5 +1,5 @@
 #ifndef PART2
-main = getContents >>= print . part1
+main = interact part1 >> putStrLn ""
 #else
-main = getContents >>= print . part2
+main = interact part2 >> putStrLn ""
 #endif
