@@ -7,6 +7,7 @@ Dependencies
 ------------
 
 * The [Glorious Haskell Compiler](https://www.haskell.org/ghc/)
+* \[Optional\] [Python 3](https://www.python.org/)
 
 Build
 -----
@@ -35,3 +36,7 @@ Example:
     $ ./d01p1 < d01.txt
     1342
 
+Python example:
+
+    $ python d06p1.py < test.txt
+    5934
