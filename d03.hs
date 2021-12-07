@@ -8,8 +8,6 @@ bits = many1 (subtract (ord '0') . ord <$> oneOf "01")
 
 binToDec = foldl (\a b -> 2 * a + b) 0
 
-occurences = map (\x -> (head x, length x)) . sortOn length . group . sort
-
 mostCommon = fst . head . reverse . occurences
 
 leastCommon = fst . head . occurences
